@@ -1,0 +1,342 @@
+{extend name='base'/}
+{block name='content'}
+<div class="row" style="margin: 10px 0 20px 20px">
+  <form class="form-inline" action="{:url('/admin')}" method="post">
+    <!--<div class="col-lg-3">-->
+    <div class="form-group" style="margin-right: 20px">
+      <label style="margin-right: 10px">实验室 </label>
+
+
+      <select id = "lab" class="form-control" name="lab">
+        {foreach $lab as $vo}
+          <option value="{$vo.laboratory_id}">{$vo.laboratory_id}</option>
+        {/foreach}
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-right: 10px">
+      <label style="margin-right: 10px">周</label>
+      <select id = "week1" class="form-control" name="week1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-right: 20px;">
+      <label style="margin-right: 10px">至</label>
+      <select id="week2" class="form-control" name="week2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+      </select>
+    </div>
+
+    <button type="submit"  class="btn btn-info" >查询</button>
+
+
+    <label style="margin-left: 50px;: 10px">网页加载完点击课表中具体框格可预约课程</label>
+
+    <!--</div>-->
+    <!--<div class="col-lg-3">-->
+    <!--<div>-->
+    <!--<select class="form-control" style="width: 100px">-->
+    <!--<option>1</option>-->
+    <!--<option>2</option>-->
+    <!--<option>3</option>-->
+    <!--<option>4</option>-->
+    <!--<option>5</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-lg-3">-->
+    <!--<select class="form-control" style="width: 100px">-->
+    <!--<option>1</option>-->
+    <!--<option>2</option>-->
+    <!--<option>3</option>-->
+    <!--<option>4</option>-->
+    <!--<option>5</option>-->
+    <!--</select>-->
+    <!--</div>-->
+
+  </form>
+</div>
+
+<!--<h2 class="sub-header">Section title</h2>-->
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th width="50"  class="text-center"></th>
+      <th width="120" class="text-center">星期一</th>
+      <th width="120" class="text-center">星期二</th>
+      <th width="120" class="text-center">星期三</th>
+      <th width="120" class="text-center">星期四</th>
+      <th width="120" class="text-center">星期五</th>
+      <th width="120" class="text-center">星期六</th>
+      <th width="120" class="text-center">星期日</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="height: 100px">
+      <td align="center">0102</td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0102" data-week="星期一">
+        {foreach $course['0102']['week1'] as $vo}
+          {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0102" data-week="星期二">
+        {foreach $course['0102']['week2'] as $vo}
+          {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0102" data-week="星期三">
+        {foreach $course['0102']['week3'] as $vo}
+          {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0102" data-week="星期四">
+        {foreach $course['0102']['week4'] as $vo}
+          {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0102" data-week="星期五">
+        {foreach $course['0102']['week5'] as $vo}
+          {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0102" data-week="星期六">
+        {foreach $course['0102']['week6'] as $vo}
+          {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0102" data-week="星期日">
+        {foreach $course['0102']['week7'] as $vo}
+          {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+    </tr>
+    <tr style="height: 100px">
+      <td align="center">0304</td>
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0304" data-week="星期一">
+        {foreach $course['0304']['week1'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0304" data-week="星期二">
+        {foreach $course['0304']['week2'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0304" data-week="星期三">
+        {foreach $course['0304']['week3'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0304" data-week="星期四">
+        {foreach $course['0304']['week4'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0304" data-week="星期五">
+        {foreach $course['0304']['week5'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0304" data-week="星期六">
+        {foreach $course['0304']['week6'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0304" data-week="星期日">
+        {foreach $course['0304']['week7'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+    </tr>
+    <tr style="height: 100px">
+      <td align="center">0506</td>
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0506" data-week="星期一">
+        {foreach $course['0506']['week1'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0506" data-week="星期二">
+        {foreach $course['0506']['week2'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0506" data-week="星期三">
+        {foreach $course['0506']['week3'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0506" data-week="星期四">
+        {foreach $course['0506']['week4'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0506" data-week="星期五">
+        {foreach $course['0506']['week5'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0506" data-week="星期六">
+        {foreach $course['0506']['week6'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0506" data-week="星期日">
+        {foreach $course['0506']['week7'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+    </tr>
+    <tr style="height: 100px">
+      <td align="center">0708</td>
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0708" data-week="星期一">
+        {foreach $course['0708']['week1'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0708" data-week="星期二">
+        {foreach $course['0708']['week2'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0708" data-week="星期三">
+        {foreach $course['0708']['week3'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0708" data-week="星期四">
+        {foreach $course['0708']['week4'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0708" data-week="星期五">
+        {foreach $course['0708']['week5'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0708" data-week="星期六">
+        {foreach $course['0708']['week6'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0708" data-week="星期日">
+        {foreach $course['0708']['week7'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+    </tr>
+    <tr style="height: 100px">
+      <td align="center">0910</td>
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0910" data-week="星期一">
+        {foreach $course['0910']['week1'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0910" data-week="星期二">
+        {foreach $course['0102']['week2'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0910" data-week="星期三">
+        {foreach $course['0102']['week3'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0910" data-week="星期四">
+        {foreach $course['0102']['week4'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0910" data-week="星期五">
+        {foreach $course['0102']['week5'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0910" data-week="星期六">
+        {foreach $course['0102']['week6'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+
+      <td align="center" data-toggle="modal" data-target="#exampleModal" data-section="0910" data-week="星期日">
+        {foreach $course['0102']['week7'] as $vo}
+        {$vo['course']}<br>{$vo['week']}<br>{$vo['class']}<br>{$vo['course_id']?'------------------------':''}<br>
+        {/foreach}
+      </td>
+    </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+{/block}
